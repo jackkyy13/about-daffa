@@ -1,0 +1,1834 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daffa Faaiz Al-Zakkii</title>
+<meta name="description" content="Portofolio Daffa Faaiz Al-Zakkii — Mahasiswa Statistika dan Sains Data IPB University. Aspiring Machine Learning Engineer & Data Analyst.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+:root {
+  --ease-quiet:    cubic-bezier(.22, 1, .36, 1);
+  --ease-precise:  cubic-bezier(.4, 0, .2, 1);
+  --ease-emphasis: cubic-bezier(.16, 1, .3, 1);
+  --max-w: 1280px;
+  --max-w-prose: 720px;
+}
+:root[data-theme="dark"] {
+  --bg: #1c1814;
+  --bg-elev: #26221c;
+  --text: #f5f1ea;
+  --text-soft: #b8b0a4;
+  --text-dim: #807a70;
+  --accent: #d4a574;
+  --accent-strong: #e5b885;
+  --accent-soft: rgba(212, 165, 116, 0.14);
+  --line: rgba(245, 241, 234, 0.09);
+  --line-strong: rgba(245, 241, 234, 0.18);
+  --card: #26221c;
+  --card-hover: #2d2922;
+  --shadow: 0 30px 60px -20px rgba(0,0,0,0.5), 0 18px 36px -18px rgba(0,0,0,0.35);
+  --chart-grid: rgba(245, 241, 234, 0.07);
+  --chart-axis: rgba(245, 241, 234, 0.35);
+}
+:root[data-theme="light"] {
+  --bg: #f5f0e4;
+  --bg-elev: #fffbf2;
+  --text: #1a1714;
+  --text-soft: #5c554d;
+  --text-dim: #8a8378;
+  --accent: #8b6914;
+  --accent-strong: #6b5530;
+  --accent-soft: rgba(139, 105, 20, 0.1);
+  --line: rgba(26, 23, 20, 0.1);
+  --line-strong: rgba(26, 23, 20, 0.22);
+  --card: #ffffff;
+  --card-hover: #faf6ec;
+  --shadow: 0 30px 60px -20px rgba(26, 23, 20, 0.18), 0 18px 36px -18px rgba(26, 23, 20, 0.12);
+  --chart-grid: rgba(26, 23, 20, 0.08);
+  --chart-axis: rgba(26, 23, 20, 0.45);
+}
+
+*, *::before, *::after {
+  transition: background-color 0.5s var(--ease-quiet),
+              border-color 0.5s var(--ease-quiet),
+              color 0.5s var(--ease-quiet);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-weight: 400;
+  line-height: 1.6;
+  font-size: 16px;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; cursor: pointer; background: none; border: none; color: inherit; }
+
+::selection { background: var(--accent); color: var(--bg); }
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+/* NAV */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 1.1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background: color-mix(in srgb, var(--bg) 78%, transparent);
+  border-bottom: 1px solid var(--line);
+}
+.nav-brand {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 1.02rem;
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.nav-brand::before {
+  content: '';
+  width: 8px; height: 8px;
+  background: var(--accent);
+  border-radius: 50%;
+}
+.nav-brand .sub {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--text-dim);
+  margin-left: 0.15rem;
+}
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  font-size: 0.84rem;
+  font-weight: 400;
+  color: var(--text-soft);
+}
+.nav-links a {
+  position: relative;
+  padding: 0.25rem 0;
+  transition: color 0.3s var(--ease-quiet);
+}
+.nav-links a:hover { color: var(--text); }
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 0; height: 1px;
+  background: var(--accent);
+  transition: width 0.4s var(--ease-quiet);
+}
+.nav-links a:hover::after { width: 100%; }
+
+.theme-toggle {
+  width: 40px; height: 40px;
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  font-size: 0.92rem;
+  color: var(--text);
+  transition: all 0.4s var(--ease-quiet);
+}
+.theme-toggle:hover {
+  background: var(--accent);
+  color: var(--bg);
+  border-color: var(--accent);
+  transform: rotate(20deg);
+}
+@media (max-width: 880px) {
+  .nav-links { display: none; }
+  .nav { padding: 0.9rem 1.25rem; }
+}
+
+/* SECTION */
+section {
+  padding: 8rem 2rem;
+  position: relative;
+}
+.container { max-width: var(--max-w); margin: 0 auto; }
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+}
+.eyebrow::before {
+  content: '';
+  width: 28px;
+  height: 1px;
+  background: var(--accent);
+}
+.section-num {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  font-family: 'Fraunces', serif;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  letter-spacing: 0.05em;
+}
+@media (max-width: 768px) {
+  .section-num { display: none; }
+  section { padding: 5rem 1.25rem; }
+}
+
+h1, h2, h3 { font-weight: 400; letter-spacing: -0.02em; }
+
+/* HERO */
+#hero {
+  min-height: 100vh;
+  padding-top: 9rem;
+  padding-bottom: 4rem;
+  display: flex;
+  align-items: center;
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 5rem;
+  align-items: center;
+  width: 100%;
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+
+.hero-text > * {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s var(--ease-quiet), transform 1s var(--ease-quiet);
+}
+.hero-text.is-in > * { opacity: 1; transform: none; }
+.hero-text.is-in .hero-eyebrow { transition-delay: 0.1s; }
+.hero-text.is-in .hero-name    { transition-delay: 0.25s; }
+.hero-text.is-in .hero-tagline { transition-delay: 0.45s; }
+.hero-text.is-in .hero-cta     { transition-delay: 0.65s; }
+.hero-text.is-in .hero-meta    { transition-delay: 0.85s; }
+
+.hero-eyebrow {
+  font-size: 0.74rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 1.75rem;
+}
+.hero-eyebrow::after {
+  content: '';
+  width: 60px;
+  height: 1px;
+  background: var(--accent);
+  opacity: 0.6;
+}
+.hero-name {
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-size: clamp(3.5rem, 9vw, 7rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  margin-bottom: 1.5rem;
+}
+.hero-name .ital {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--accent);
+}
+.hero-tagline {
+  font-size: 1.08rem;
+  line-height: 1.6;
+  color: var(--text-soft);
+  max-width: 540px;
+  margin-bottom: 2.5rem;
+  font-weight: 300;
+}
+.hero-tagline strong { color: var(--text); font-weight: 500; }
+.hero-cta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.95rem 1.65rem;
+  font-size: 0.87rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  border-radius: 999px;
+  border: 1px solid var(--line-strong);
+  transition: all 0.4s var(--ease-quiet);
+  position: relative;
+}
+.btn-primary {
+  background: var(--accent);
+  color: var(--bg);
+  border-color: var(--accent);
+}
+.btn-primary:hover {
+  background: var(--accent-strong);
+  border-color: var(--accent-strong);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px -10px var(--accent-soft);
+}
+.btn-ghost:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+.btn i { font-size: 0.78rem; transition: transform 0.4s var(--ease-quiet); }
+.btn:hover i { transform: translateX(3px); }
+.btn-primary:hover i { transform: translateY(3px); }
+
+.hero-meta {
+  display: flex;
+  gap: 2.5rem;
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  letter-spacing: 0.04em;
+  flex-wrap: wrap;
+}
+.hero-meta span { display: flex; align-items: center; gap: 0.5rem; }
+.hero-meta i { color: var(--accent); font-size: 0.7rem; }
+
+.hero-photo {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(40px) scale(0.95);
+  transition: opacity 1.2s var(--ease-emphasis) 0.5s,
+              transform 1.2s var(--ease-emphasis) 0.5s;
+}
+.is-in .hero-photo { opacity: 1; transform: none; }
+
+.photo-ring {
+  position: relative;
+  width: min(380px, 100%);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  padding: 8px;
+  background: linear-gradient(135deg, var(--accent) 0%, transparent 45%, transparent 55%, var(--accent) 100%);
+}
+.photo-inner {
+  width: 100%; height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--bg-elev);
+  position: relative;
+}
+.photo-inner img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  filter: grayscale(15%) contrast(1.05);
+  transition: filter 0.6s var(--ease-quiet), transform 1.2s var(--ease-quiet);
+}
+.photo-ring:hover .photo-inner img {
+  filter: grayscale(0%) contrast(1);
+  transform: scale(1.05);
+}
+.photo-tag {
+  position: absolute;
+  bottom: 8%;
+  right: -8%;
+  background: var(--bg-elev);
+  border: 1px solid var(--line-strong);
+  padding: 0.6rem 0.95rem;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  color: var(--text-soft);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: var(--shadow);
+  text-transform: uppercase;
+}
+.photo-tag .dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #4ade80;
+  box-shadow: 0 0 8px #4ade80;
+  animation: pulse 2.4s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.85); }
+}
+
+@media (max-width: 880px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .hero-photo { order: -1; }
+  .photo-ring { width: 200px; }
+  .photo-tag { right: 0; }
+}
+
+/* ABOUT */
+#about {
+  background: var(--bg-elev);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 4rem;
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+.about-label {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 0.95rem;
+  color: var(--text-dim);
+  position: sticky;
+  top: 8rem;
+  align-self: start;
+}
+.about-body { max-width: var(--max-w-prose); }
+.about-body h2 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  margin-bottom: 2rem;
+  font-weight: 400;
+}
+.about-body p {
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: var(--text-soft);
+  margin-bottom: 1.5rem;
+  font-weight: 300;
+}
+.about-body p strong { color: var(--text); font-weight: 500; }
+.about-body .accent {
+  color: var(--accent);
+  font-style: italic;
+  font-family: 'Fraunces', serif;
+}
+@media (max-width: 768px) {
+  .about-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .about-label { position: static; }
+}
+
+/* SKILLS */
+.skills-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 4rem;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.skills-header h2 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  max-width: 640px;
+  font-weight: 400;
+}
+.skills-header h2 .ital {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--accent);
+}
+.chips {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+.chip {
+  border: 1px solid var(--line-strong);
+  background: var(--card);
+  padding: 1.4rem 1.5rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.4s var(--ease-quiet);
+  cursor: default;
+}
+.chip:hover {
+  border-color: var(--accent);
+  background: var(--card-hover);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+.chip i {
+  font-size: 1.1rem;
+  color: var(--accent);
+  width: 32px;
+  text-align: center;
+}
+.chip-name {
+  font-size: 0.92rem;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+}
+.chip-sub {
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  margin-top: 0.15rem;
+  letter-spacing: 0.04em;
+}
+
+/* PROJECTS */
+#projects {
+  background: var(--bg-elev);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 4rem;
+}
+.project-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 2.25rem 2rem;
+  transition: all 0.5s var(--ease-quiet);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s var(--ease-quiet);
+}
+.project-card:hover {
+  background: var(--card-hover);
+  border-color: var(--line-strong);
+  transform: translateY(-6px);
+  box-shadow: var(--shadow);
+}
+.project-card:hover::before { transform: scaleX(1); }
+.project-num {
+  font-family: 'Fraunces', serif;
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  letter-spacing: 0.08em;
+  margin-bottom: 1.5rem;
+}
+.project-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+.project-card h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 1.35rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.85rem;
+  line-height: 1.3;
+}
+.project-card p {
+  font-size: 0.92rem;
+  color: var(--text-soft);
+  line-height: 1.65;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+  font-weight: 300;
+}
+.project-tags {
+  display: flex;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+.project-tag {
+  font-size: 0.7rem;
+  padding: 0.3rem 0.7rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  color: var(--text-dim);
+  letter-spacing: 0.04em;
+}
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.84rem;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+  align-self: flex-start;
+}
+.project-link i { font-size: 0.72rem; transition: transform 0.4s var(--ease-quiet); }
+.project-card:hover .project-link i { transform: translate(3px, -3px); }
+@media (max-width: 768px) {
+  .projects-grid { grid-template-columns: 1fr; }
+}
+
+/* ML LAB */
+.lab-header {
+  text-align: center;
+  margin-bottom: 4rem;
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.lab-header .eyebrow { justify-content: center; }
+.lab-header h2 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+  font-weight: 400;
+}
+.lab-header h2 .ital {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--accent);
+}
+.lab-header p {
+  font-size: 1rem;
+  color: var(--text-soft);
+  font-weight: 300;
+  line-height: 1.65;
+}
+
+.lab-board {
+  display: grid;
+  grid-template-columns: 1.45fr 1fr;
+  gap: 0;
+  background: var(--card);
+  border: 1px solid var(--line-strong);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+/* PLOT */
+.lab-plot {
+  padding: 2rem 1.75rem 1.5rem;
+  border-right: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  background: var(--card);
+}
+.plot-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.plot-title {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--text-soft);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.plot-title i { color: var(--accent); font-size: 0.85rem; }
+.plot-legend {
+  display: flex;
+  gap: 1.1rem;
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  letter-spacing: 0.03em;
+  flex-wrap: wrap;
+}
+.plot-legend span { display: flex; align-items: center; gap: 0.4rem; }
+.swatch-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); border: 1.5px solid var(--card); box-shadow: 0 0 0 1.5px var(--accent); }
+.swatch-line { width: 16px; height: 2px; background: var(--accent); border-radius: 1px; }
+.swatch-residual { width: 16px; height: 0; border-top: 1.5px dashed var(--accent); opacity: 0.6; }
+
+.plot-canvas {
+  position: relative;
+  flex-grow: 1;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 0.5rem;
+  min-height: 380px;
+}
+#chart {
+  width: 100%;
+  height: 100%;
+  display: block;
+  cursor: crosshair;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+}
+.plot-hint {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 0.92rem;
+  color: var(--text-dim);
+  text-align: center;
+  pointer-events: none;
+  transition: opacity 0.4s var(--ease-quiet);
+  max-width: 80%;
+  line-height: 1.5;
+}
+.plot-instructions {
+  margin-top: 0.85rem;
+  font-size: 0.74rem;
+  color: var(--text-dim);
+  letter-spacing: 0.04em;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  justify-content: center;
+}
+.plot-instructions span { display: flex; align-items: center; gap: 0.4rem; }
+.plot-instructions kbd {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  padding: 0.15rem 0.45rem;
+  background: var(--bg);
+  border: 1px solid var(--line-strong);
+  border-radius: 4px;
+  color: var(--text-soft);
+}
+
+/* PANEL */
+.lab-panel {
+  padding: 2rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  background: var(--bg);
+}
+.lab-section-title {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-bottom: 0.1rem;
+}
+.lab-section-title i { color: var(--accent); font-size: 0.7rem; }
+.lab-section-title:not(:first-child) { margin-top: 0.5rem; }
+
+.metric-stack { display: flex; flex-direction: column; gap: 0.85rem; }
+.metric {
+  padding: 1rem 1.15rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--card);
+}
+.metric.primary {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+}
+.metric-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+.metric-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 0.4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+.metric-label i { color: var(--accent); font-size: 0.6rem; }
+.metric-value {
+  font-family: 'Fraunces', serif;
+  font-size: 1.65rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  color: var(--text);
+}
+.metric.primary .metric-value { color: var(--accent); font-size: 2rem; }
+.metric-value.small { font-size: 1.2rem; }
+.metric-sub {
+  font-size: 0.68rem;
+  color: var(--text-dim);
+  margin-top: 0.3rem;
+  letter-spacing: 0.04em;
+}
+
+.equation-display {
+  font-family: 'Fraunces', serif;
+  font-size: 1.4rem;
+  padding: 1rem 1.25rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  color: var(--text);
+}
+.eq-y { font-style: italic; color: var(--text-soft); }
+.eq-m { color: var(--accent); font-weight: 500; font-variant-numeric: tabular-nums; }
+.eq-x { font-style: italic; color: var(--text-soft); margin-left: -0.1rem; }
+.eq-c { color: var(--accent); font-weight: 500; font-variant-numeric: tabular-nums; }
+
+.eq-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.78rem;
+  color: var(--text-soft);
+  padding: 0.85rem 1.15rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+.eq-stats span { display: flex; justify-content: space-between; }
+.eq-stats strong { color: var(--text); font-variant-numeric: tabular-nums; font-weight: 500; }
+
+.fit-quality { display: flex; flex-direction: column; gap: 0.4rem; }
+.fit-bar {
+  height: 5px;
+  background: var(--line-strong);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.fit-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 3px;
+  width: 0%;
+  transition: width 0.6s var(--ease-quiet);
+}
+.fit-status {
+  font-size: 0.82rem;
+  color: var(--text-soft);
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+}
+
+.lab-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  margin-top: 0.5rem;
+}
+.lab-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.75rem 1rem;
+  font-size: 0.82rem;
+  font-weight: 500;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  background: var(--card);
+  color: var(--text);
+  transition: all 0.35s var(--ease-quiet);
+  letter-spacing: 0.02em;
+}
+.lab-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--card-hover);
+}
+.lab-btn.danger:hover {
+  border-color: #c75450;
+  color: #c75450;
+}
+.lab-btn.primary {
+  background: var(--accent);
+  color: var(--bg);
+  border-color: var(--accent);
+}
+.lab-btn.primary:hover {
+  background: var(--accent-strong);
+  border-color: var(--accent-strong);
+  color: var(--bg);
+}
+.lab-btn i { font-size: 0.74rem; }
+
+@media (max-width: 980px) {
+  .lab-board { grid-template-columns: 1fr; }
+  .lab-plot { border-right: none; border-bottom: 1px solid var(--line); }
+  .plot-canvas { min-height: 320px; }
+}
+
+/* RESOURCES */
+#resources {
+  background: var(--bg-elev);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.resources-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 4rem;
+}
+.resource-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: all 0.4s var(--ease-quiet);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.resource-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+.resource-icon {
+  width: 44px; height: 44px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.05rem;
+}
+.resource-card h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 1.15rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+.resource-card p {
+  font-size: 0.88rem;
+  color: var(--text-soft);
+  line-height: 1.6;
+  flex-grow: 1;
+  font-weight: 300;
+}
+.resource-link {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  letter-spacing: 0.02em;
+}
+.resource-link i { transition: transform 0.4s var(--ease-quiet); font-size: 0.72rem; }
+.resource-card:hover .resource-link i { transform: translate(2px, -2px); }
+@media (max-width: 880px) {
+  .resources-grid { grid-template-columns: 1fr; }
+}
+
+/* CONTACT */
+#contact {
+  padding-top: 7rem;
+  padding-bottom: 3rem;
+}
+.contact-inner {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 5rem;
+}
+.contact-inner .eyebrow { justify-content: center; }
+.contact-inner h2 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+}
+.contact-inner h2 .ital {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--accent);
+}
+.contact-inner p {
+  font-size: 1.05rem;
+  color: var(--text-soft);
+  line-height: 1.65;
+  margin-bottom: 2.5rem;
+  font-weight: 300;
+}
+.contact-email {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-family: 'Fraunces', serif;
+  font-size: 1.1rem;
+  color: var(--accent);
+  padding: 0.85rem 1.75rem;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  transition: all 0.4s var(--ease-quiet);
+  font-weight: 400;
+}
+.contact-email:hover {
+  background: var(--accent);
+  color: var(--bg);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px -10px var(--accent-soft);
+}
+.contact-email i { font-size: 0.92rem; }
+
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 4rem;
+  flex-wrap: wrap;
+}
+.social-link {
+  width: 52px;
+  height: 52px;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.05rem;
+  color: var(--text-soft);
+  transition: all 0.4s var(--ease-quiet);
+}
+.social-link:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--bg);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 25px -10px var(--accent-soft);
+}
+
+.footer-bottom {
+  border-top: 1px solid var(--line);
+  padding-top: 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  letter-spacing: 0.04em;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.footer-bottom .brand {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  color: var(--text-soft);
+}
+
+/* REVEAL */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s var(--ease-quiet), transform 1s var(--ease-quiet);
+}
+.reveal.is-in { opacity: 1; transform: none; }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+  .hero-text > * { opacity: 1; transform: none; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="#hero" class="nav-brand">Daffa<span class="sub">| Mas Dapp</span></a>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#lab">ML Lab</a>
+    <a href="#resources">Resources</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+    <i class="fas fa-moon"></i>
+  </button>
+</nav>
+
+<section id="hero">
+  <div class="hero-grid">
+    <div class="hero-text" id="heroText">
+      <div class="hero-eyebrow">Portofolio</div>
+      <h1 class="hero-name">Daffa<span class="ital">.</span></h1>
+      <p class="hero-tagline">
+        Mahasiswa <strong>Statistika dan Sains Data</strong> di IPB University. Aspiring Machine Learning Engineer &amp; Data Analyst.
+      </p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-primary">
+          Lihat Proyek Saya <i class="fas fa-arrow-down"></i>
+        </a>
+        <a href="#contact" class="btn btn-ghost">
+          Hubungi Saya <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+      <div class="hero-meta">
+        <span><i class="fas fa-location-dot"></i> Bogor, Indonesia</span>
+        <span><i class="fas fa-graduation-cap"></i> IPB University</span>
+        <span><i class="fas fa-circle" style="font-size: 0.45rem;"></i> Tersedia untuk kolaborasi</span>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <div class="photo-ring">
+        <div class="photo-inner">
+          <img src="assets/image/Profil.jpg" alt="Foto Profil Daffa" loading="eager">
+        </div>
+        <div class="photo-tag">
+          <span class="dot"></span> Open to Collabs
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="about-grid">
+    <div class="about-label">ABOUT</div>
+    <div class="about-body reveal">
+      <span class="eyebrow">1 · About Me</span>
+      <h2>Mencari cerita tersembunyi di balik data melalui eksplorasi teknologi dan statistika</h2>
+      <p>
+        Perjalanan saya bermula dari rasa ingin tahu sederhana saat melihat betapa cepatnya dunia teknologi berkembang. Awalnya saya merasa hanya mengikuti tren yang sedang hangat, tapi rasa penasaran itu justru membawa saya pada penemuan yang lebih mendalam mengenai kekuatan data. Sebagai mahasiswa <strong>Statistika dan Sains Data di IPB University</strong> saya terus mematangkan fondasi analitis mengenai probabilitas inferensi klasik dan pemodelan regresi dalam setiap proses akademik yang saya jalani.
+      </p>
+      <p>
+        Pembelajaran saya sama sekali tidak terbatas pada apa yang diajarkan di dalam ruang kuliah. Di waktu luang saya secara rutin mengeksplorasi algoritma <strong>Machine Learning</strong> dan berlatih menganalisis beragam dataset nyata yang tersedia di platform <strong>Kaggle</strong> maupun portal <strong>Badan Pusat Statistik</strong>. Saya selalu menikmati setiap prosesnya mulai dari membersihkan data yang berantakan merumuskan pola tersembunyi hingga meracik visualisasi interaktif yang mudah dipahami oleh siapa saja.
+      </p>
+      <p>
+        Sebagai bentuk eksplorasi tambahan saya juga sering bereksperimen membangun situs web sederhana yang terhubung langsung dengan sistem basis data relasional. Pada akhirnya ketiga minat utama ini saling melengkapi jalan pikir saya. <strong>Statistika</strong> memberikan nalar yang logis <strong>machine learning</strong>menghadirkan daya prediksi tingkat tinggi dan <strong>pengembangan web</strong> menyediakan panggung yang sempurna untuk mendemonstrasikan temuan data secara visual. Seluruh karya dalam portofolio ini hadir untuk merangkum wujud nyata dari proses belajar dan eksplorasi panjang yang kini menjadi semangat utama saya.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="section-num">2</div>
+  <div class="container">
+    <div class="skills-header reveal">
+      <span class="eyebrow">SKILLS</span>
+      <h2>Alat yang saya pakai untuk <span class="ital">merangkai</span> data menjadi keputusan</h2>
+    </div>
+    <div class="chips">
+      <div class="chip reveal"><i class="fas fa-chart-line"></i><div><div class="chip-name">R</div><div class="chip-sub">Statistical Computing</div></div></div>
+      <div class="chip reveal reveal-delay-1"><i class="fab fa-python"></i><div><div class="chip-name">Python</div><div class="chip-sub">Pandas · NumPy · scikit-learn</div></div></div>
+      <div class="chip reveal reveal-delay-2"><i class="fas fa-database"></i><div><div class="chip-name">SQL</div><div class="chip-sub">PostgreSQL · MySQL</div></div></div>
+      <div class="chip reveal"><i class="fas fa-chart-column"></i><div><div class="chip-name">Tableau</div><div class="chip-sub">Data Visualization</div></div></div>
+      <div class="chip reveal reveal-delay-1"><i class="fas fa-server"></i><div><div class="chip-name">Database Administrator</div><div class="chip-sub">Schema · Indexing · Backup</div></div></div>
+      <div class="chip reveal reveal-delay-2"><i class="fas fa-globe"></i><div><div class="chip-name">Web Development</div><div class="chip-sub">HTML · CSS · JavaScript</div></div></div>
+      <div class="chip reveal"><i class="fas fa-brain"></i><div><div class="chip-name">Machine Learning</div><div class="chip-sub">Regression · Clustering . Classification</div></div></div>
+      <div class="chip reveal reveal-delay-1"><i class="fas fa-square-root-variable"></i><div><div class="chip-name">Regression Diagnostics</div><div class="chip-sub">Residual · VIF · Heteroscedasticity</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="section-num">3</div>
+  <div class="container">
+    <div class="skills-header reveal">
+      <span class="eyebrow">PROJECTS</span>
+      <h2>Karya yang tersimpan di <span class="ital">Google Drive</span></h2>
+    </div>
+    <div class="projects-grid">
+      <article class="project-card reveal">
+        <div class="project-num">PROYEK 1</div>
+        <div class="project-icon"><i class="fas fa-database"></i></div>
+        <h3>Manajemen Basis Data - PT Fajarindo Intani Wafi</h3>
+        <p>Pengembangan proyek arsitektur dan sistem basis data menggunakan kolaborasi PHP dan PostgreSQL.</p>
+        <div class="project-tags">
+          <span class="project-tag">PHP</span>
+          <span class="project-tag">PostgreSQL</span>
+          <span class="project-tag">DBeaver</span>
+          <span class="project-tag">PDF</span>
+        </div>
+        <a href="https://drive.google.com/drive/folders/1uT47N78SaEjbSOMaGrlXvMjfYKgqcK8w?usp=drive_link" class="project-link">Lihat Detail di Drive <i class="fas fa-arrow-up-right-from-square"></i></a>
+      </article>
+      <article class="project-card reveal reveal-delay-1">
+        <div class="project-num">PROYEK 2</div>
+        <div class="project-icon"><i class="fas fa-code"></i></div>
+        <h3>End-to-End Data Science & Web Scraping</h3>
+        <p>Portofolio proyek analisis data komprehensif berbasis Python dan R yang mencakup keseluruhan siklus data. Alur kerja dimulai dari pengumpulan data mentah melalui web scraping, data cleaning, transformasi fitur, pemodelan machine learning, hingga interpretasi hasil akhir. Termasuk di dalamnya eksperimen diagnostik regresi dan tuning algoritma.</p>
+        <div class="project-tags">
+          <span class="project-tag">RStudio</span>
+          <span class="project-tag">Python</span>
+          <span class="project-tag">Jupyter</span>
+          <span class="project-tag">Selenium</span>
+        </div>
+        <a href="https://drive.google.com/drive/folders/108Ux2XFyMVqQh_BSz30NAnqv_G0keTEq?usp=drive_link" class="project-link">Lihat Detail di Drive <i class="fas fa-arrow-up-right-from-square"></i></a>
+      </article>
+      <article class="project-card reveal">
+        <div class="project-num">PROYEK 3</div>
+        <div class="project-icon"><i class="fas fa-laptop-code"></i></div>
+        <h3>EduClev | Bimbel Online</h3>
+        <p>Pendirian dan pengelolaan operasional digital bimbingan belajar, mencakup manajemen operasional, tutor, dan analitik strategi bisnis.</p>
+        <div class="project-tags">
+          <span class="project-tag">HTML</span>
+          <span class="project-tag">CSS</span>
+          <span class="project-tag">JavaScript</span>
+          <span class="project-tag">Github</span>
+        </div>
+        <a href="https://drive.google.com/drive/folders/1fCvwjVvfi7H7ckgo-Fi1GGbNszTctLxF?usp=drive_link" class="project-link">Lihat Detail di Drive <i class="fas fa-arrow-up-right-from-square"></i></a>
+      </article>
+      <article class="project-card reveal reveal-delay-1">
+        <div class="project-num">PROYEK 4</div>
+        <div class="project-icon"><i class="fas fa-spider"></i></div>
+        <h3>Akademik & Karya Tulis Ilmiah</h3>
+        <p>Kumpulan paper, artikel ilmiah, dan laporan penelitian yang telah disusun. Berisi dokumentasi riset yang menitikberatkan pada penerapan statistika dan sains data serta artificial intelligence.</p>
+        <div class="project-tags">
+          <span class="project-tag">Academic Papers</span>
+          <span class="project-tag">Statistika Terapan</span>
+          <span class="project-tag">Metodologi Riset</span>
+        </div>
+        <a href="https://drive.google.com/drive/folders/1i_Si7qqExUugXgH_DO_i_hv5Hfsa1X3s?usp=drive_link" class="project-link">Lihat Detail di Drive <i class="fas fa-arrow-up-right-from-square"></i></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="lab">
+  <div class="section-num">4</div>
+  <div class="container">
+    <div class="lab-header reveal">
+      <span class="eyebrow">ML LAB</span>
+      <h2>Interactive ML Lab: <span class="ital">Linear Regression</span></h2>
+      <p>Klik pada papan koordinat untuk menambah titik. Seret titik untuk memindahkan. Klik kanan untuk menghapus. Garis regresi dihitung otomatis dengan metode <em>ordinary least squares</em> .Slope, intercept, MSE, RMSE, dan R² diperbarui secara real-time.</p>
+    </div>
+
+    <div class="lab-board reveal">
+      <div class="lab-plot">
+        <div class="plot-header">
+          <div class="plot-title"><i class="fas fa-chart-line"></i> Scatter Plot &amp; OLS Fit</div>
+          <div class="plot-legend">
+            <span><span class="swatch-dot"></span> Titik data</span>
+            <span><span class="swatch-line"></span> Garis regresi</span>
+            <span><span class="swatch-residual"></span> Residual</span>
+          </div>
+        </div>
+        <div class="plot-canvas">
+          <svg id="chart" viewBox="0 0 540 400" preserveAspectRatio="xMidYMid meet"></svg>
+          <div class="plot-hint" id="plotHint">Klik Bosqueee</div>
+        </div>
+        <div class="plot-instructions">
+          <span><kbd>Klik</kbd> tambah titik</span>
+          <span><kbd>Drag</kbd> pindah</span>
+          <span><kbd>Klik kanan</kbd> hapus</span>
+        </div>
+      </div>
+
+      <div class="lab-panel">
+        <div class="lab-section-title"><i class="fas fa-gauge-high"></i> Live Output</div>
+
+        <div class="metric-stack">
+          <div class="metric primary">
+            <div class="metric-label"><i class="fas fa-bullseye"></i> MSE (Loss)</div>
+            <div class="metric-value" id="val-mse">—</div>
+            <div class="metric-sub">Mean Squared Error</div>
+          </div>
+          <div class="metric-row-2">
+            <div class="metric">
+              <div class="metric-label">RMSE</div>
+              <div class="metric-value small" id="val-rmse">—</div>
+            </div>
+            <div class="metric">
+              <div class="metric-label">R²</div>
+              <div class="metric-value small" id="val-r2">—</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lab-section-title"><i class="fas fa-square-root-variable"></i> Persamaan Garis</div>
+        <div class="equation-display">
+          <span class="eq-y">ŷ</span> = <span class="eq-m" id="eq-m">—</span><span class="eq-x">x</span> + <span class="eq-c" id="eq-c">—</span>
+        </div>
+        <div class="eq-stats">
+          <span>Slope (m) <strong id="val-m">—</strong></span>
+          <span>Intercept (beta 0) <strong id="val-c">—</strong></span>
+          <span>Jumlah titik (N) <strong id="val-n">0</strong></span>
+        </div>
+
+        <div class="lab-section-title"><i class="fas fa-circle-check"></i> Kualitas Fit</div>
+        <div class="fit-quality">
+          <div class="fit-bar"><div class="fit-fill" id="fitFill"></div></div>
+          <div class="fit-status" id="fitStatus">Belum ada data</div>
+        </div>
+
+        <div class="lab-controls">
+          <button class="lab-btn primary" id="sampleBtn">
+            <i class="fas fa-flask"></i> Muat Data Contoh
+          </button>
+          <button class="lab-btn" id="undoBtn">
+            <i class="fas fa-rotate-left"></i> Urungkan
+          </button>
+          <button class="lab-btn danger" id="clearBtn">
+            <i class="fas fa-trash"></i> Hapus Semua
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="resources">
+  <div class="section-num">5</div>
+  <div class="container">
+    <div class="skills-header reveal">
+      <span class="eyebrow">RESOURCES</span>
+      <h2>Referensi yang sering saya <span class="ital">pelajari</span> ulang</h2>
+    </div>
+    <div class="resources-grid">
+      <a href="https://drive.google.com/drive/folders/1YvgZb8vPasbTq5NYHJJu5WuCnlt712HC?usp=sharing" class="resource-card reveal">
+        <div class="resource-icon"><i class="fas fa-book-open"></i></div>
+        <h3>Buku &amp; Referensi</h3>
+        <p>Koleksi buku digital yang saya pakai sebagai rujukan dan juga referensi bacaan terkait statistika, sains data, dan juga web development.</p>
+        <div class="resource-link">Buka di Drive <i class="fas fa-arrow-up-right-from-square"></i></div>
+      </a>
+      <a href="https://drive.google.com/drive/folders/1c_WRRXrR4I54JTvEBbSl76YvnoNg1vfm?usp=drive_link" class="resource-card reveal reveal-delay-1">
+        <div class="resource-icon"><i class="fas fa-file-code"></i></div>
+        <h3>Cheat Sheet R &amp; Python</h3>
+        <p>Catatan syntax dan materi yang pernah saya pelajari, seperti dplyr, ggplot2, pandas, scikit-learn. Dirangkum dari proyek nyata, bukan dokumentasi resmi.</p>
+        <div class="resource-link">Buka di Drive <i class="fas fa-arrow-up-right-from-square"></i></div>
+      </a>
+      <a href="https://drive.google.com/drive/folders/1e97jbauBmU_5UPl2i07MW4_xudV7tNPj?usp=drive_link" class="resource-card reveal reveal-delay-2">
+        <div class="resource-icon"><i class="fas fa-graduation-cap"></i></div>
+        <h3>Modul &amp; Materi Kuliah</h3>
+        <p>Materi perkuliahan yang sudah saya rapikan ulang dan ada beberapa soal.</p>
+        <div class="resource-link">Buka di Drive <i class="fas fa-arrow-up-right-from-square"></i></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="container">
+    <div class="contact-inner reveal">
+      <span class="eyebrow">CONTACT</span>
+      <h2>Punya proyek data, atau cuma mau <span class="ital">ngobrol</span> soal statistika?</h2>
+      <p>Saya selalu terbuka untuk kolaborasi penelitian, proyek analisis data, atau sekadar berbagi perspektif tentang Machine Learning dan Web Development.</p>
+      <a href="mailto:daffafaaizalzakkii@gmail.com" class="contact-email"><i class="fas fa-envelope"></i> daffafaaizalzakkii@gmail.com</a>
+    </div>
+
+    <div class="socials">
+      <a href="mailto:daffafaaizalzakkii@gmail.com" class="social-link" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.linkedin.com/in/daffa-faaiz-al-zakkii/" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://github.com/jackkyy13" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://www.instagram.com/daffafaaiz.13" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.tiktok.com/@alzakkkiifz" class="social-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© Daffa Faaiz Al-Zakkii</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* 1. THEME TOGGLE */
+const html = document.documentElement;
+const themeToggle = document.getElementById('themeToggle');
+const themeIcon = themeToggle.querySelector('i');
+
+const savedTheme = localStorage.getItem('theme') || 'dark';
+html.setAttribute('data-theme', savedTheme);
+updateThemeIcon(savedTheme);
+
+themeToggle.addEventListener('click', () => {
+  const current = html.getAttribute('data-theme');
+  const next = current === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+  updateThemeIcon(next);
+  // Re-render chart agar warna ikut berubah
+  requestAnimationFrame(renderChart);
+});
+
+function updateThemeIcon(theme) {
+  themeIcon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+}
+
+/* 2. SCROLL REVEAL */
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('is-in');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+const heroText = document.getElementById('heroText');
+const heroSection = document.getElementById('hero'); 
+
+requestAnimationFrame(() => {
+  setTimeout(() => {
+    heroText.classList.add('is-in');
+    heroSection.classList.add('is-in'); //
+  }, 80);
+});
+
+/* 3. INTERACTIVE ML LAB — LINEAR REGRESSION
+       m = (N·Σxy − Σx·Σy) / (N·Σx² − (Σx)²)
+       c = (Σy − m·Σx) / N
+       MSE = (1/N)·Σ(y − ŷ)²
+       RMSE = √MSE
+       R² = 1 − SS_res/SS_tot */
+
+// Konfigurasi papan koordinat
+const CHART_W = 540;
+const CHART_H = 400;
+const PAD = { left: 55, right: 25, top: 25, bottom: 45 };
+const X_MIN = 0, X_MAX = 10;
+const Y_MIN = 0, Y_MAX = 10;
+
+// State
+let points = [];
+let draggingIdx = -1;
+let history = [];
+
+// DOM refs
+const chart = document.getElementById('chart');
+const plotHint = document.getElementById('plotHint');
+const valMse = document.getElementById('val-mse');
+const valRmse = document.getElementById('val-rmse');
+const valR2 = document.getElementById('val-r2');
+const valM = document.getElementById('val-m');
+const valC = document.getElementById('val-c');
+const valN = document.getElementById('val-n');
+const eqM = document.getElementById('eq-m');
+const eqC = document.getElementById('eq-c');
+const fitFill = document.getElementById('fitFill');
+const fitStatus = document.getElementById('fitStatus');
+
+// Konversi koordinat
+function dataToSvg(x, y) {
+  const sx = PAD.left + (x - X_MIN) / (X_MAX - X_MIN) * (CHART_W - PAD.left - PAD.right);
+  const sy = PAD.top + (1 - (y - Y_MIN) / (Y_MAX - Y_MIN)) * (CHART_H - PAD.top - PAD.bottom);
+  return { sx, sy };
+}
+
+function svgToData(svgX, svgY) {
+  const dataX = X_MIN + (svgX - PAD.left) / (CHART_W - PAD.left - PAD.right) * (X_MAX - X_MIN);
+  const dataY = Y_MAX - (svgY - PAD.top) / (CHART_H - PAD.top - PAD.bottom) * (Y_MAX - Y_MIN);
+  return { x: dataX, y: dataY };
+}
+
+function getCoordsFromEvent(e) {
+  const rect = chart.getBoundingClientRect();
+  const scaleX = CHART_W / rect.width;
+  const scaleY = CHART_H / rect.height;
+  let clientX, clientY;
+  if (e.touches && e.touches.length) {
+    clientX = e.touches[0].clientX;
+    clientY = e.touches[0].clientY;
+  } else {
+    clientX = e.clientX;
+    clientY = e.clientY;
+  }
+  const svgX = (clientX - rect.left) * scaleX;
+  const svgY = (clientY - rect.top) * scaleY;
+  const { x, y } = svgToData(svgX, svgY);
+  return {
+    x: Math.max(X_MIN, Math.min(X_MAX, x)),
+    y: Math.max(Y_MIN, Math.min(Y_MAX, y))
+  };
+}
+
+function findPointAt(coords, threshold = 0.45) {
+  for (let i = points.length - 1; i >= 0; i--) {
+    const dx = points[i].x - coords.x;
+    const dy = points[i].y - coords.y;
+    if (Math.sqrt(dx * dx + dy * dy) < threshold) return i;
+  }
+  return -1;
+}
+
+function saveHistory() {
+  history.push(points.map(p => ({ ...p })));
+  if (history.length > 50) history.shift();
+}
+
+// Event handlers — mouse
+chart.addEventListener('mousedown', (e) => {
+  if (e.button === 2) return; 
+  e.preventDefault();
+  const coords = getCoordsFromEvent(e);
+  const idx = findPointAt(coords);
+  if (idx !== -1) {
+    draggingIdx = idx;
+  } else {
+    saveHistory();
+    points.push(coords);
+    draggingIdx = points.length - 1;
+    update();
+  }
+});
+
+document.addEventListener('mousemove', (e) => {
+  if (draggingIdx === -1) return;
+  const coords = getCoordsFromEvent(e);
+  points[draggingIdx] = coords;
+  update();
+});
+
+document.addEventListener('mouseup', () => {
+  draggingIdx = -1;
+});
+
+chart.addEventListener('contextmenu', (e) => {
+  e.preventDefault();
+  const coords = getCoordsFromEvent(e);
+  const idx = findPointAt(coords);
+  if (idx !== -1) {
+    saveHistory();
+    points.splice(idx, 1);
+    if (draggingIdx === idx) draggingIdx = -1;
+    else if (draggingIdx > idx) draggingIdx--;
+    update();
+  }
+});
+
+// Event handlers — touch
+chart.addEventListener('touchstart', (e) => {
+  e.preventDefault();
+  const coords = getCoordsFromEvent(e);
+  const idx = findPointAt(coords);
+  if (idx !== -1) {
+    draggingIdx = idx;
+  } else {
+    saveHistory();
+    points.push(coords);
+    draggingIdx = points.length - 1;
+    update();
+  }
+}, { passive: false });
+
+document.addEventListener('touchmove', (e) => {
+  if (draggingIdx === -1) return;
+  e.preventDefault();
+  const coords = getCoordsFromEvent(e);
+  points[draggingIdx] = coords;
+  update();
+}, { passive: false });
+
+document.addEventListener('touchend', () => {
+  draggingIdx = -1;
+});
+
+// Hitung regresi OLS
+function computeRegression(pts) {
+  const n = pts.length;
+  if (n < 2) return null;
+
+  let sumX = 0, sumY = 0, sumXY = 0, sumX2 = 0;
+  for (const p of pts) {
+    sumX += p.x;
+    sumY += p.y;
+    sumXY += p.x * p.y;
+    sumX2 += p.x * p.x;
+  }
+
+  const denom = n * sumX2 - sumX * sumX;
+  if (Math.abs(denom) < 1e-9) return null;
+
+  const m = (n * sumXY - sumX * sumY) / denom;
+  const c = (sumY - m * sumX) / n;
+
+  let ssRes = 0, ssTot = 0;
+  const yMean = sumY / n;
+  for (const p of pts) {
+    const yPred = m * p.x + c;
+    ssRes += (p.y - yPred) ** 2;
+    ssTot += (p.y - yMean) ** 2;
+  }
+
+  const mse = ssRes / n;
+  const rmse = Math.sqrt(mse);
+  const r2 = ssTot < 1e-9 ? 1 : 1 - ssRes / ssTot;
+
+  return { m, c, mse, rmse, r2 };
+}
+
+function formatNum(n, decimals = 2) {
+  if (!isFinite(n)) return '—';
+  return n.toFixed(decimals);
+}
+
+function formatSigned(n, decimals = 2) {
+  if (!isFinite(n)) return '—';
+  const s = n.toFixed(decimals);
+  return n >= 0 ? '+' + s : '−' + Math.abs(n).toFixed(decimals);
+}
+
+// Update UI
+function update() {
+  const reg = computeRegression(points);
+
+  valN.textContent = points.length;
+
+  if (reg) {
+    valMse.textContent = formatNum(reg.mse, 3);
+    valRmse.textContent = formatNum(reg.rmse, 3);
+    valR2.textContent = formatNum(reg.r2, 3);
+    valM.textContent = formatNum(reg.m, 3);
+    valC.textContent = formatNum(reg.c, 3);
+    eqM.textContent = formatSigned(reg.m, 2);
+    eqC.textContent = formatSigned(reg.c, 2);
+
+    // Kualitas fit berdasarkan R²
+    let status, fillPct;
+    if (reg.r2 >= 0.95)      { status = 'Excellent fit : R² ≥ 0.95'; fillPct = 100; }
+    else if (reg.r2 >= 0.85) { status = 'Good fit : R² ≥ 0.85';     fillPct = 85; }
+    else if (reg.r2 >= 0.6)  { status = 'Moderate fit : R² ≥ 0.60'; fillPct = 60; }
+    else if (reg.r2 >= 0.3)  { status = 'Weak fit : R² ≥ 0.30';     fillPct = 35; }
+    else if (reg.r2 >= 0)    { status = 'Poor fit : R² < 0.30';     fillPct = 15; }
+    else                     { status = 'Worse than mean : R² < 0'; fillPct = 5;  }
+    fitStatus.textContent = status;
+    fitFill.style.width = fillPct + '%';
+  } else {
+    valMse.textContent = '—';
+    valRmse.textContent = '—';
+    valR2.textContent = '—';
+    valM.textContent = '—';
+    valC.textContent = '—';
+    eqM.textContent = '—';
+    eqC.textContent = '—';
+    if (points.length < 2) {
+      fitStatus.textContent = points.length === 0
+        ? 'Belum ada data, coba tambah titik untuk mulai'
+        : 'Tambah ' + (2 - points.length) + ' titik lagi untuk menghitung regresi';
+    } else {
+      fitStatus.textContent = 'Tidak dapat dihitung karena titik-titik memiliki x yang sama';
+    }
+    fitFill.style.width = '0%';
+  }
+
+  // Hint overlay
+  if (points.length === 0) {
+    plotHint.textContent = 'Klik Bosqueee';
+    plotHint.style.opacity = '1';
+  } else if (points.length < 2) {
+    plotHint.textContent = 'Tambah ' + (2 - points.length) + ' titik lagi untuk mulai menghitung';
+    plotHint.style.opacity = '0.7';
+  } else {
+    plotHint.style.opacity = '0';
+  }
+
+  renderChart();
+}
+
+// Render SVG chart
+function renderChart() {
+  const styles = getComputedStyle(html);
+  const accent     = styles.getPropertyValue('--accent').trim();
+  const textDim    = styles.getPropertyValue('--text-dim').trim();
+  const textSoft   = styles.getPropertyValue('--text-soft').trim();
+  const chartGrid  = styles.getPropertyValue('--chart-grid').trim();
+  const chartAxis  = styles.getPropertyValue('--chart-axis').trim();
+  const bg         = styles.getPropertyValue('--bg').trim();
+  const card       = styles.getPropertyValue('--card').trim();
+
+  const reg = computeRegression(points);
+
+  let svg = '';
+
+  // Defs untuk clip path
+  svg += `<defs>
+    <clipPath id="plotClip">
+      <rect x="${PAD.left}" y="${PAD.top}" width="${CHART_W - PAD.left - PAD.right}" height="${CHART_H - PAD.top - PAD.bottom}"/>
+    </clipPath>
+  </defs>`;
+
+  // Background plot area
+  svg += `<rect x="${PAD.left}" y="${PAD.top}" width="${CHART_W - PAD.left - PAD.right}" height="${CHART_H - PAD.top - PAD.bottom}" fill="${bg}" opacity="0.4"/>`;
+
+  // Grid (setiap 1 unit)
+  for (let i = 0; i <= 10; i++) {
+    const p1 = dataToSvg(i, 0);
+    const p2 = dataToSvg(i, 10);
+    svg += `<line x1="${p1.sx}" y1="${p1.sy}" x2="${p2.sx}" y2="${p2.sy}" stroke="${chartGrid}" stroke-width="1"/>`;
+
+    const p3 = dataToSvg(0, i);
+    const p4 = dataToSvg(10, i);
+    svg += `<line x1="${p3.sx}" y1="${p3.sy}" x2="${p4.sx}" y2="${p4.sy}" stroke="${chartGrid}" stroke-width="1"/>`;
+  }
+
+  // Axis labels (setiap 2 unit)
+  for (let i = 0; i <= 10; i += 2) {
+    const px = dataToSvg(i, 0);
+    svg += `<text x="${px.sx}" y="${px.sy + 18}" font-family="Inter, sans-serif" font-size="10" fill="${textDim}" text-anchor="middle">${i}</text>`;
+
+    const py = dataToSvg(0, i);
+    svg += `<text x="${py.sx - 10}" y="${py.sy + 4}" font-family="Inter, sans-serif" font-size="10" fill="${textDim}" text-anchor="end">${i}</text>`;
+  }
+
+  // Axis lines
+  const origin = dataToSvg(0, 0);
+  const xEnd = dataToSvg(10, 0);
+  const yEnd = dataToSvg(0, 10);
+  svg += `<line x1="${origin.sx}" y1="${origin.sy}" x2="${xEnd.sx}" y2="${xEnd.sy}" stroke="${chartAxis}" stroke-width="1.5"/>`;
+  svg += `<line x1="${origin.sx}" y1="${origin.sy}" x2="${yEnd.sx}" y2="${yEnd.sy}" stroke="${chartAxis}" stroke-width="1.5"/>`;
+
+  // Axis name hints
+  svg += `<text x="${CHART_W - PAD.right}" y="${CHART_H - PAD.bottom + 32}" font-family="Fraunces, serif" font-style="italic" font-size="11" fill="${textSoft}" text-anchor="end">x</text>`;
+  svg += `<text x="${PAD.left - 35}" y="${PAD.top + 5}" font-family="Fraunces, serif" font-style="italic" font-size="11" fill="${textSoft}">y</text>`;
+
+  // Clipped content (garis + titik + residual)
+  svg += `<g clip-path="url(#plotClip)">`;
+
+  // Garis regresi (solid amber)
+  if (reg) {
+    const y1 = reg.m * X_MIN + reg.c;
+    const y2 = reg.m * X_MAX + reg.c;
+    const p1 = dataToSvg(X_MIN, y1);
+    const p2 = dataToSvg(X_MAX, y2);
+    svg += `<line x1="${p1.sx}" y1="${p1.sy}" x2="${p2.sx}" y2="${p2.sy}" stroke="${accent}" stroke-width="2.5" stroke-linecap="round" opacity="0.95"/>`;
+
+    // Garis residual (dashed) — dari tiap titik ke garis regresi
+    points.forEach(p => {
+      const yPred = reg.m * p.x + reg.c;
+      const pt = dataToSvg(p.x, p.y);
+      const ptPred = dataToSvg(p.x, yPred);
+      const dist = Math.abs(pt.sy - ptPred.sy);
+      if (dist > 1) {
+        svg += `<line x1="${pt.sx}" y1="${pt.sy}" x2="${ptPred.sx}" y2="${ptPred.sy}" stroke="${accent}" stroke-width="1" stroke-dasharray="3 3" opacity="0.5"/>`;
+      }
+    });
+  }
+
+  // Titik data
+  points.forEach((p, i) => {
+    const pt = dataToSvg(p.x, p.y);
+    const isDragging = i === draggingIdx;
+    const r = isDragging ? 7 : 5.5;
+    // Outer ring
+    svg += `<circle cx="${pt.sx}" cy="${pt.sy}" r="${r + 2}" fill="${accent}" opacity="0.15"/>`;
+    // Main dot
+    svg += `<circle cx="${pt.sx}" cy="${pt.sy}" r="${r}" fill="${bg}" stroke="${accent}" stroke-width="2.5"/>`;
+    // Coordinate label saat drag
+    if (isDragging) {
+      svg += `<text x="${pt.sx + 12}" y="${pt.sy - 10}" font-family="JetBrains Mono, monospace" font-size="10" fill="${textSoft}">(${p.x.toFixed(2)}, ${p.y.toFixed(2)})</text>`;
+    }
+  });
+
+  svg += `</g>`;
+
+  chart.innerHTML = svg;
+}
+
+// Buttons
+document.getElementById('sampleBtn').addEventListener('click', () => {
+  saveHistory();
+  points = [
+    { x: 1.2, y: 2.3 },
+    { x: 2.5, y: 3.5 },
+    { x: 3.4, y: 4.2 },
+    { x: 4.8, y: 5.8 },
+    { x: 5.5, y: 5.5 },
+    { x: 6.7, y: 7.4 },
+    { x: 7.6, y: 7.8 },
+    { x: 8.5, y: 9.1 }
+  ];
+  update();
+});
+
+document.getElementById('undoBtn').addEventListener('click', () => {
+  if (history.length === 0) return;
+  points = history.pop();
+  update();
+});
+
+document.getElementById('clearBtn').addEventListener('click', () => {
+  if (points.length === 0) return;
+  saveHistory();
+  points = [];
+  update();
+});
+
+// Initial render
+update();
+renderChart();
+
+// Re-render chart saat window resize (untuk touch scaling)
+let resizeTimer;
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(renderChart, 100);
+});
+
+/* 4. SMOOTH SCROLL */
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', (e) => {
+    const href = link.getAttribute('href');
+    if (href === '#' || href.length < 2) return;
+    const target = document.querySelector(href);
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+</body>
+</html>
